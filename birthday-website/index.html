@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Pookie Dookie ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ═══════════════ CUSTOM CURSOR ═══════════════ -->
+  <div id="cursor"></div>
+  <div id="cursor-trail-container"></div>
+
+  <!-- ═══════════════ LOADING SCREEN ═══════════════ -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-heart">❤️</div>
+      <p class="loading-text">Loading Your Surprise...</p>
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FLOATING ELEMENTS (global) ═══════════════ -->
+  <div id="global-hearts"></div>
+
+  <!-- ════════════════════════════════════════════════════
+       PAGE 1 — LANDING
+  ════════════════════════════════════════════════════ -->
+  <section id="page-landing" class="page active">
+
+    <!-- Background slideshow -->
+    <div class="slideshow">
+      <div class="slide" style="background-image:url('images/photo1.jpg')"></div>
+      <div class="slide" style="background-image:url('images/photo2.jpg')"></div>
+      <div class="slide" style="background-image:url('images/photo3.jpg')"></div>
+      <div class="slide" style="background-image:url('images/photo4.jpg')"></div>
+    </div>
+    <div class="slide-overlay"></div>
+
+    <!-- Confetti canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Balloons -->
+    <div class="balloons" id="balloons"></div>
+
+    <!-- Stars layer -->
+    <div class="stars-layer" id="stars"></div>
+
+    <!-- Content -->
+    <div class="landing-content glass-card">
+      <div class="cake-emoji">🎂</div>
+      <h1 class="main-title">Happy Birthday<br/>Pookie Dookie ❤️</h1>
+      <p class="sub-heading">
+        Today is all about you.<br/>
+        The most beautiful person who makes my world brighter every single day.
+      </p>
+
+      <!-- Music button -->
+      <button class="music-btn" id="music-btn" onclick="toggleMusic()">
+        🎵 Play Birthday Music
+      </button>
+      <audio id="bg-music" loop>
+        <!-- Replace src with your mp3: music/birthday.mp3 -->
+        <source src="music/birthday.mp3" type="audio/mpeg"/>
+      </audio>
+
+      <!-- CTA -->
+      <button class="cta-btn" onclick="goToPage('page-timeline')">
+        Open Your Surprise ❤️
+      </button>
+    </div>
+
+    <!-- Fireworks canvas -->
+    <canvas id="fireworks-canvas"></canvas>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       PAGE 2 — TIMELINE
+  ════════════════════════════════════════════════════ -->
+  <section id="page-timeline" class="page">
+    <div class="page-bg-gradient"></div>
+    <div class="floating-hearts-bg" id="timeline-hearts"></div>
+
+    <div class="section-header">
+      <h2 class="section-title">Things I Love About You</h2>
+      <div class="title-underline"></div>
+    </div>
+
+    <div class="timeline-container">
+
+      <div class="timeline-card glass-card scroll-reveal">
+        <span class="card-icon">💖</span>
+        <p>You make my days happier.</p>
+        <div class="card-sparkle">✨</div>
+      </div>
+
+      <div class="timeline-card glass-card scroll-reveal">
+        <span class="card-icon">🌸</span>
+        <p>Every moment with you feels special.</p>
+        <div class="card-sparkle">✨</div>
+      </div>
+
+      <div class="timeline-card glass-card scroll-reveal">
+        <span class="card-icon">✨</span>
+        <p>Your smile is my favorite thing.</p>
+        <div class="card-sparkle">✨</div>
+      </div>
+
+      <div class="timeline-card glass-card scroll-reveal">
+        <span class="card-icon">❤️</span>
+        <p>Thank you for being you.</p>
+        <div class="card-sparkle">✨</div>
+      </div>
+
+    </div>
+
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goToPage('page-landing')">← Back</button>
+      <button class="nav-btn primary" onclick="goToPage('page-gallery')">See Our Memories ❤️</button>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       PAGE 3 — MEMORY GALLERY
+  ════════════════════════════════════════════════════ -->
+  <section id="page-gallery" class="page">
+    <div class="page-bg-gradient"></div>
+
+    <div class="section-header">
+      <h2 class="section-title">Memory Gallery</h2>
+      <div class="title-underline"></div>
+      <p class="section-sub">Every picture is a beautiful chapter ✨</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item scroll-reveal" onclick="openLightbox('images/photo1.jpg')">
+        <img src="images/photo1.jpg" alt="Memory 1" loading="lazy"/>
+        <div class="gallery-overlay"><span>💖</span></div>
+      </div>
+      <div class="gallery-item scroll-reveal" onclick="openLightbox('images/photo2.jpg')">
+        <img src="images/photo2.jpg" alt="Memory 2" loading="lazy"/>
+        <div class="gallery-overlay"><span>🌸</span></div>
+      </div>
+      <div class="gallery-item scroll-reveal" onclick="openLightbox('images/photo3.jpg')">
+        <img src="images/photo3.jpg" alt="Memory 3" loading="lazy"/>
+        <div class="gallery-overlay"><span>✨</span></div>
+      </div>
+      <div class="gallery-item scroll-reveal" onclick="openLightbox('images/photo4.jpg')">
+        <img src="images/photo4.jpg" alt="Memory 4" loading="lazy"/>
+        <div class="gallery-overlay"><span>❤️</span></div>
+      </div>
+      <!-- Slots for more photos -->
+      <div class="gallery-item placeholder scroll-reveal">
+        <div class="placeholder-inner">📷<br/>Add Photo 5</div>
+      </div>
+      <div class="gallery-item placeholder scroll-reveal">
+        <div class="placeholder-inner">📷<br/>Add Photo 6</div>
+      </div>
+      <div class="gallery-item placeholder scroll-reveal">
+        <div class="placeholder-inner">📷<br/>Add Photo 7</div>
+      </div>
+      <div class="gallery-item placeholder scroll-reveal">
+        <div class="placeholder-inner">📷<br/>Add Photo 8</div>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goToPage('page-timeline')">← Back</button>
+      <button class="nav-btn primary" onclick="goToPage('page-letter')">Read Your Letter ❤️</button>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img id="lightbox-img" src="" alt="Memory"/>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       PAGE 4 — LOVE LETTER
+  ════════════════════════════════════════════════════ -->
+  <section id="page-letter" class="page">
+    <div class="page-bg-gradient"></div>
+    <div class="letter-petals" id="letter-petals"></div>
+
+    <div class="section-header">
+      <h2 class="section-title">A Letter For You</h2>
+      <div class="title-underline"></div>
+    </div>
+
+    <div class="letter-wrapper glass-card">
+      <div class="letter-deco-top">💌</div>
+      <div id="letter-text" class="letter-body"></div>
+      <div class="letter-cursor" id="letter-cursor">|</div>
+
+      <button class="cta-btn letter-cta" id="letter-continue-btn" style="display:none" onclick="goToPage('page-proposal')">
+        Continue ❤️
+      </button>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goToPage('page-gallery')">← Back</button>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       PAGE 5 — PROPOSAL
+  ════════════════════════════════════════════════════ -->
+  <section id="page-proposal" class="page">
+    <!-- Night sky -->
+    <div class="night-sky">
+      <div class="moon">🌙</div>
+      <div class="stars-proposal" id="stars-proposal"></div>
+      <div class="rose-petals" id="rose-petals"></div>
+    </div>
+
+    <div class="proposal-card glass-card">
+      <div class="proposal-hearts-deco" id="proposal-hearts"></div>
+      <div class="teddy-top">🧸</div>
+      <h2 class="proposal-title">Will You Be My Girlfriend? ❤️</h2>
+      <p class="proposal-sub">"I promise to always try my best to make you smile."</p>
+
+      <div class="proposal-buttons" id="proposal-btns">
+        <button class="yes-btn" id="yes-btn" onclick="handleYes()">YES ❤️</button>
+        <button class="no-btn" id="no-btn" onclick="handleNo()">NO 💔</button>
+      </div>
+    </div>
+
+    <!-- Yes celebration overlay -->
+    <div id="yes-overlay" class="yes-overlay" style="display:none">
+      <canvas id="celebration-canvas"></canvas>
+      <div class="yes-content glass-card">
+        <div class="teddy-celebrate">🧸</div>
+        <h2 class="yes-title">❤️ Yayyyyy!! ❤️</h2>
+        <p class="yes-sub">You just made me the happiest person alive.</p>
+        <button class="cta-btn" onclick="goToPage('page-final')">Forever Starts Here →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       PAGE 6 — FINAL
+  ════════════════════════════════════════════════════ -->
+  <section id="page-final" class="page">
+    <div class="final-hearts-bg" id="final-hearts"></div>
+
+    <div class="final-content">
+      <div class="final-big-heart" id="final-heart">❤️</div>
+      <h2 class="final-title">Forever Starts Here ❤️</h2>
+      <div id="day-counter" class="day-counter">Day 1 of our forever.</div>
+      <p class="final-sub">Here's to every day after this one ✨</p>
+
+      <button class="cta-btn" onclick="replayStory()">🔄 Replay Our Story</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
